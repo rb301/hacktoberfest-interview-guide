@@ -1,0 +1,25 @@
+// Read only Collection
+
+import java.util.*;
+
+public class ReadOnlyCollection {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		List<String> stuff = Arrays.asList(new String[] { "a", "b" });
+    List<String> list = new ArrayList<String>(stuff);
+    list = Collections.unmodifiableList(list);
+    try {
+       list.set(0, "new value");
+    } catch (UnsupportedOperationException e) {
+    	System.out.println("Exception caught !!!");
+    }
+    Set<String> set = new HashSet<String>(stuff);
+    set = Collections.unmodifiableSet(set);
+    Map<?, ?> map = new HashMap<Object, Object>();
+    map = Collections.unmodifiableMap(map);
+    System.out.println("Collection is read-only now.");
+	}
+
+}
